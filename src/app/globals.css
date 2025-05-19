@@ -1,6 +1,64 @@
 @import "tailwindcss";
 
 :root {
+  --color-beige-header: #dbd7d3;
+  --color-beige-page: #f5f0eb;
+  --color-beige-stroke: #decdc3;
+  --color-beige-button: #7d6e65;
+  --color-black: #2c2c2c;
+  --color-white: #f5f5f5;
+  --color-green-header: #9eaeaa;
+  --color-green-page: #a1b9b3;
+  --color-green-stroke: #8da19c;
+  --color-green-button: #76b3a4;
+  --color-green-subtitle: #444c4a;
+}
+
+.beige-header {
+  background-color: var(--color-beige-header);
+}
+
+.beige-page {
+  background-color: var(--color-beige-page);
+}
+
+.beige-stroke {
+  background-color: var(--color-beige-stroke);
+}
+
+.beige-button {
+  background-color: var(--color-beige-button);
+}
+
+.black {
+  background-color: var(--color-black);
+}
+
+.white {
+  background-color: var(--color-white);
+}
+
+.green-header {
+  background-color: var(--color-green-header);
+}
+
+.green-page {
+  background-color: var(--color-green-page);
+}
+
+.green-stroke {
+  background-color: var(--color-green-stroke);
+}
+
+.green-button {
+  background-color: var(--color-green-button);
+}
+
+.green-subtitle {
+  background-color: var(--color-green-subtitle);
+}
+
+:root {
   --background: #ffffff;
   --foreground: #171717;
 }

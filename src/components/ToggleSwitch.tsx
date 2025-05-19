@@ -1,5 +1,7 @@
-import { useTypeStore } from "../../store/type";
+"use client";
+
 import { getLabel } from "@/utils";
+import { useTypeStore } from "../../store/type";
 
 export const ToggleSwitch = () => {
   const { type, toggleType } = useTypeStore();
@@ -24,7 +26,7 @@ export const ToggleSwitch = () => {
       </div>
       <span
         className={`ms-3 text-lg font-extrabold 
-      ${type === "location" ? "text-green-button" : "text-beige-accent"}
+      ${type === "location" ? "text-green-subtitle" : "text-beige-accent"}
       `}
       >
         {getLabel(type)} 질문하기

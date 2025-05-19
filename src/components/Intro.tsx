@@ -9,8 +9,13 @@ interface IntroProps {
 export const Intro = ({ type }: IntroProps) => {
   return (
     <DaegamiChatBubble>
-      안녕하세요! <b className="text-beige-accent">{getLabel(type)}</b> 상담을
-      도와드리겠습니다.
+      안녕하세요!{" "}
+      <b
+        className={`${type === "location" ? "text-green-button" : "text-beige-accent"}`}
+      >
+        {getLabel(type)}
+      </b>{" "}
+      상담을 도와드리겠습니다.
     </DaegamiChatBubble>
   );
 };

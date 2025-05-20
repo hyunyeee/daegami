@@ -29,7 +29,7 @@ export const ToggleSwitch = () => {
       ${type === "location" ? "text-green-subtitle" : "text-beige-accent"}
       `}
       >
-        {getLabel(type)} 질문하기
+        창업 {getLabel(type)} 질문하기
       </span>
     </label>
   );

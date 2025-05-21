@@ -1,6 +1,6 @@
 "use client";
 
-import { getLabel } from "@/utils";
+import { getLabel } from "@/utils/utils";
 import { useTypeStore } from "../../store/type";
 
 export const ToggleSwitch = () => {

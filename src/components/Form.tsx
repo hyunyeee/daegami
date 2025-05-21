@@ -5,6 +5,7 @@ import { requestChatResponse } from "../../api";
 import { useChatStore } from "../../store/chat";
 import { useTypeStore } from "../../store/type";
 import { useLoadingStore } from "../../store/useLoadingStore";
+import { AutoResizingTextarea } from "@/components/AutoResizingTextarea";
 import { TypeLabels } from "@/types";
 
 export default function Form() {
@@ -14,6 +15,14 @@ export default function Form() {
   const { isLoading, setLoading } = useLoadingStore();
 
   const { type } = useTypeStore();
+
+  const handleKeyDown = async (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      setInput("");
+      await handleSubmit(e);
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -44,14 +53,15 @@ export default function Form() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="fixed bottom-2 left-1/2 transform -translate-x-1/2 w-[50%] px-5 py-3 bg-white flex justify-between items-center rounded-full flex-grow-0"
+      className="scrollbar-hide fixed bottom-3 left-1/2 transform -translate-x-1/2 w-[50%] px-5 py-3 bg-white flex justify-between items-center gap-2 rounded-xl flex-grow-0"
     >
-      <input
+      <AutoResizingTextarea
         value={input}
         onChange={(e) => setInput(e.target.value)}
-        className="w-full"
+        onKeyDown={handleKeyDown}
         placeholder="대감이에게 궁금한 점을 질문해보세요!"
       />
+
       <button disabled={isLoading}>
         <img src="/send.svg" alt="전송 버튼" />
       </button>

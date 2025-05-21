@@ -1,0 +1,60 @@
+"use client";
+
+import { useState } from "react";
+import { requestChatResponse } from "../../api";
+import { useChatStore } from "../../store/chat";
+import { useTypeStore } from "../../store/type";
+import { useLoadingStore } from "../../store/useLoadingStore";
+import { TypeLabels } from "@/types";
+
+export default function Form() {
+  const [input, setInput] = useState("");
+
+  const { addMessage } = useChatStore();
+  const { isLoading, setLoading } = useLoadingStore();
+
+  const { type } = useTypeStore();
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const userMessage = input.trim();
+    if (!userMessage) return;
+
+    addMessage({ from: "user", message: userMessage });
+    setInput("");
+
+    try {
+      setLoading(true);
+
+      const data = await requestChatResponse({
+        category: TypeLabels[type],
+        message: userMessage,
+      });
+
+      addMessage({ from: "bot", message: data.aiResponse });
+    } catch (error) {
+      console.error(error);
+      addMessage({ from: "bot", message: "⚠️ 서버 에러 발생" });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <form
+      onSubmit={handleSubmit}
+      className="fixed bottom-2 left-1/2 transform -translate-x-1/2 w-[50%] px-5 py-3 bg-white flex justify-between items-center rounded-full flex-grow-0"
+    >
+      <input
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+        className="w-full"
+        placeholder="대감이에게 궁금한 점을 질문해보세요!"
+      />
+      <button disabled={isLoading}>
+        <img src="/send.svg" alt="전송 버튼" />
+      </button>
+    </form>
+  );
+}

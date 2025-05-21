@@ -1,8 +1,8 @@
 "use client";
 
-import { useTypeStore } from "../../store/type";
+import { useTypeStore } from "../../../store/type";
 
-export const UserChatBubble = () => {
+export const UserChatBubble = ({ children }: { children: React.ReactNode }) => {
   const { type } = useTypeStore();
 
   return (
@@ -11,7 +11,7 @@ export const UserChatBubble = () => {
     ${type === "location" ? "bg-green-stroke border-green-stroke" : "bg-beige-stroke border-beige-stroke"}
       `}
     >
-      나 창업할래
+      {children}
     </div>
   );
 };

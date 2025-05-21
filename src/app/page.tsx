@@ -2,6 +2,7 @@
 
 import { Header } from "@/components/Header";
 import { ChatArea } from "@/components/ChatArea";
+import Form from "@/components/Form";
 import { useTypeStore } from "../../store/type";
 
 export default function Home() {
@@ -14,6 +15,7 @@ export default function Home() {
     >
       <Header />
       <ChatArea />
+      <Form />
     </div>
   );
 }

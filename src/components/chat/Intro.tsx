@@ -1,6 +1,6 @@
 import { TypeKey } from "@/types";
 import { getLabel } from "@/utils";
-import { DaegamiChatBubble } from "@/components/DaegamiChatBubble";
+import { DaegamiChatBubble } from "@/components/chat/DaegamiChatBubble";
 
 interface IntroProps {
   type: TypeKey;

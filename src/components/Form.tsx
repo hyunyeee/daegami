@@ -17,6 +17,8 @@ export default function Form() {
   const { type } = useTypeStore();
 
   const handleKeyDown = async (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.nativeEvent.isComposing) return;
+
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
       setInput("");
@@ -30,7 +32,7 @@ export default function Form() {
     const userMessage = input.trim();
     if (!userMessage) return;
 
-    addMessage({ from: "user", message: userMessage });
+    addMessage({ type: "text", from: "user", message: userMessage });
     setInput("");
 
     try {
@@ -41,10 +43,10 @@ export default function Form() {
         message: userMessage,
       });
 
-      addMessage({ from: "bot", message: data.aiResponse });
+      addMessage({ type: "text", from: "bot", message: data.aiResponse });
     } catch (error) {
       console.error(error);
-      addMessage({ from: "bot", message: "⚠️ 서버 에러 발생" });
+      addMessage({ type: "text", from: "bot", message: "⚠️ 서버 에러 발생" });
     } finally {
       setLoading(false);
     }

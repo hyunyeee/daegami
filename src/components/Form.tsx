@@ -4,17 +4,19 @@ import { useState } from "react";
 import { requestChatResponse } from "../../api";
 import { useChatStore } from "../../store/chat";
 import { useTypeStore } from "../../store/type";
-import { useLoadingStore } from "../../store/useLoadingStore";
+import { useLoadingStore } from "../../store/loading";
+
 import { AutoResizingTextarea } from "@/components/AutoResizingTextarea";
 import { TypeLabels } from "@/types";
+import { useRegionStore } from "../../store/region";
 
 export default function Form() {
   const [input, setInput] = useState("");
 
   const { addMessage } = useChatStore();
   const { isLoading, setLoading } = useLoadingStore();
-
   const { type } = useTypeStore();
+  const { selectedRegion } = useRegionStore();
 
   const handleKeyDown = async (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.nativeEvent.isComposing) return;
@@ -41,6 +43,7 @@ export default function Form() {
       const data = await requestChatResponse({
         category: TypeLabels[type],
         message: userMessage,
+        ...(type === "region" && { region: selectedRegion }),
       });
 
       addMessage({ type: "text", from: "bot", message: data.aiResponse });

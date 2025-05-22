@@ -1,6 +1,6 @@
 export const TypeLabels = {
   period: "시기",
-  location: "장소",
+  region: "장소",
 } as const;
 
-export type TypeKey = keyof typeof TypeLabels; // "location" | "period"
+export type TypeKey = keyof typeof TypeLabels;

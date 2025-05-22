@@ -2,7 +2,7 @@
 
 interface ChatRequestPayload {
   category: string;
-  // region: string;
+  region?: string;
   message: string;
 }
 

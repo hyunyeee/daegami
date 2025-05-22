@@ -7,15 +7,14 @@ export const Header = () => {
 
   return (
     <div
-      className={`w-full flex items-center bg-beige-header p-4 top-0 fixed z-10
-      ${type === "location" ? "bg-green-header" : "bg-beige-header"}`}
+      className={`bg-beige-header fixed top-0 z-10 flex w-full items-center p-4 ${type === "region" ? "bg-green-header" : "bg-beige-header"}`}
     >
       <img
-        className="w-12 h-12 rounded-full"
+        className="h-12 w-12 rounded-full"
         src="/location_icon.svg"
         alt="icon"
       />
-      <span className="font-extrabold text-2xl">터줏대감</span>
+      <span className="text-2xl font-extrabold">터줏대감</span>
     </div>
   );
 };

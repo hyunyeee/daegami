@@ -33,6 +33,7 @@ export default function Form() {
 
     const userMessage = input.trim();
     if (!userMessage) return;
+    if (type === "region" && selectedRegion == "") return;
 
     addMessage({ type: "text", from: "user", message: userMessage });
     setInput("");

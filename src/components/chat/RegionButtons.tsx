@@ -36,8 +36,14 @@ export const RegionButtons = () => {
 
   return (
     <DaegamiChatBubble>
-      알아보고자 하는 지역을 선택해주세요
-      <div className="mt-4 flex max-w-[470px] flex-wrap gap-4">
+      <div className="relative">
+        <img
+          src="/flowers.svg"
+          className="absolute top-[-50px] right-[-60px]"
+        />
+      </div>
+      <p>알아보고자 하는 지역을 선택해주세요</p>
+      <div className="mt-4 flex max-w-[470px] flex-wrap justify-center gap-4">
         {LocationButton.map((region) => (
           <button
             key={region}

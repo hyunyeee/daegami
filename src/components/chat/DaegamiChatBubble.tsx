@@ -14,7 +14,7 @@ export const DaegamiChatBubble = ({
       <div className="mb-2 flex items-center gap-2.5">
         <img
           className="h-12 w-12 rounded-full"
-          src={type === 'period' ? "/daegami-beige.svg" : "/daegami-green.svg"}
+          src={type === "period" ? "/daegami-beige.svg" : "/daegami-green.svg"}
           alt="Daegami image"
         />
         <span className="text-md font-bold text-gray-900">대감이</span>

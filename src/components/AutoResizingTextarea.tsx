@@ -20,7 +20,7 @@ export function AutoResizingTextarea({
     <Textarea
       value={value}
       ref={textareaRef}
-      className="min-h-[20px] max-h-[200px] resize-none border-transparent bg-transparent p-2 shadow-none"
+      className="max-h-[200px] min-h-[20px] resize-none border-transparent bg-transparent p-2 shadow-none"
       {...others}
     />
   );

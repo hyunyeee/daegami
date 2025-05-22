@@ -37,13 +37,12 @@ export const RegionButtons = () => {
   return (
     <DaegamiChatBubble>
       알아보고자 하는 지역을 선택해주세요
-      <div className="mt-4 max-w-[470px] flex flex-wrap gap-4">
+      <div className="mt-4 flex max-w-[470px] flex-wrap gap-4">
         {LocationButton.map((region) => (
           <button
             key={region}
             onClick={() => setRegion(region)}
-            className={`px-4 py-2 rounded transition-colors cursor-pointer text-white
-            ${
+            className={`cursor-pointer rounded px-4 py-2 text-white transition-colors ${
               selectedRegion === region
                 ? "bg-green-button"
                 : "hover:bg-green-button bg-black"

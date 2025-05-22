@@ -59,7 +59,7 @@ export default function Form() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="scrollbar-hide fixed bottom-3 left-1/2 transform -translate-x-1/2 w-[50%] px-5 py-3 bg-white flex justify-between items-center gap-2 rounded-xl flex-grow-0"
+      className="scrollbar-hide fixed bottom-3 left-1/2 flex w-[50%] flex-grow-0 -translate-x-1/2 transform items-center justify-between gap-2 rounded-xl bg-white px-5 py-3"
     >
       <AutoResizingTextarea
         value={input}

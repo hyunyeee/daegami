@@ -66,10 +66,14 @@ export default function Form() {
         onChange={(e) => setInput(e.target.value)}
         onKeyDown={handleKeyDown}
         placeholder="대감이에게 궁금한 점을 질문해보세요!"
+        autoFocus
       />
 
       <button disabled={isLoading}>
-        <img src="/send.svg" alt="전송 버튼" />
+        <img
+          src={type === "period" ? "/send-beige.svg" : "/send-green.svg"}
+          alt="전송 버튼"
+        />
       </button>
     </form>
   );

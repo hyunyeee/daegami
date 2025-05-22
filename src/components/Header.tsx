@@ -8,7 +8,7 @@ export const Header = () => {
   return (
     <div
       className={`w-full flex items-center bg-beige-header p-4 top-0 fixed z-10
-      ${type === "location" ? "bg-green-header" : "bg-beige-header"}`}
+      ${type === "region" ? "bg-green-header" : "bg-beige-header"}`}
     >
       <img
         className="w-12 h-12 rounded-full"

@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <div
       className={`h-screen overflow-y-scroll
-    ${type === "location" ? "bg-green-page" : "bg-beige-page"}`}
+    ${type === "region" ? "bg-green-page" : "bg-beige-page"}`}
     >
       <Header />
       <ChatArea />

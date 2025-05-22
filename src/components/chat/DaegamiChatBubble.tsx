@@ -20,8 +20,8 @@ export const DaegamiChatBubble = ({
         <span className="text-md font-bold text-gray-900">대감이</span>
       </div>
       <div
-        className={`whitespace-pre-wrap max-w-[50%] p-4 border-6  bg-white rounded text-sm font-normal py-2.5 text-gray-900
-    ${type === "location" ? "border-green-stroke" : "border-beige-stroke"}
+        className={`w-fit whitespace-pre-wrap max-w-[50%] p-4 border-6 bg-white rounded text-sm font-normal py-2.5 text-gray-900
+    ${type === "region" ? "border-green-stroke" : "border-beige-stroke"}
     `}
       >
         {children}
